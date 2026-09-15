@@ -53,7 +53,7 @@ export function WhyThrive() {
 }
 
 export function PhotoCollage() {
-  const frames = ["lg:col-span-2 lg:row-span-2", "", "", "", "lg:col-span-2"];
+  const frames = ["lg:col-span-2 lg:row-span-2", "", "", "", ""];
 
   return (
     <section className="bg-ink py-20 text-ink-foreground sm:py-24">
