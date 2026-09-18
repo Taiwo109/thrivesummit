@@ -9,7 +9,7 @@ export const EVENT = {
   theme: "From Surviving to Thriving.",
   dateLabel: "7 November 2026",
   dayLabel: "Saturday 7 November 2026",
-  timeLabel: "11:00 AM – 4:00 PM",
+  timeLabel: "11:00 AM to 4:00 PM",
   venue: "The Envoy Nation",
   addressLines: ["66 Burleys Way", "Leicester", "LE1 3BD", "United Kingdom"],
   city: "Leicester",
@@ -52,12 +52,12 @@ export const TAKEAWAYS = [
 /** 2025 replays supplied by the client. */
 export const REPLAYS_2025 = [
   {
-    title: "Thrive Summit UK 2025 — Stream 1",
+    title: "Thrive Summit UK 2025, Stream 1",
     url: "https://www.youtube.com/live/mSA_ods7g44",
     youtubeId: "mSA_ods7g44",
   },
   {
-    title: "Thrive Summit UK 2025 — Stream 2",
+    title: "Thrive Summit UK 2025, Stream 2",
     url: "https://www.youtube.com/live/SLEFgGyAXF0",
     youtubeId: "SLEFgGyAXF0",
   },

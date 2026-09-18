@@ -6,7 +6,6 @@ import { Countdown } from "@/components/thrive/Countdown";
 import {
   WhatIsThrive,
   WhyThrive,
-  PhotoCollage,
   WhatYouLeaveWith,
   Highlights2025,
   Partners,
@@ -16,10 +15,11 @@ import { ExperienceThrive } from "@/components/thrive/ExperienceThrive";
 import { Venue } from "@/components/thrive/Venue";
 import { FinalCTA } from "@/components/thrive/FinalCTA";
 import { SiteFooter } from "@/components/thrive/SiteFooter";
+import { MemoriesCarousel } from "@/components/thrive/MemoriesCarousel";
 
 const title = "Thrive Summit UK 2026 | 7 November, Leicester";
 const description =
-  "Thrive Summit UK 2026 — from surviving to thriving. Saturday 7 November 2026 at The Envoy Nation, Leicester. A day of exposure, knowledge, connection and action.";
+  "Thrive Summit UK 2026, from surviving to thriving. Saturday 7 November 2026 at The Envoy Nation, Leicester. A day of exposure, knowledge, connection and action.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,7 +47,7 @@ function Index() {
         <WhyThrive />
         <SpeakerCarousel />
         <ExperienceThrive />
-        <PhotoCollage />
+        <MemoriesCarousel />
         <WhatYouLeaveWith />
         <Highlights2025 />
         <Partners />

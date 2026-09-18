@@ -1,5 +1,6 @@
-import { Play, Film } from "lucide-react";
+import { Play } from "lucide-react";
 import { REPLAYS_2025 } from "@/content/thrive";
+import { SNIPPET_POSTERS_2025, SNIPPETS_2025 } from "@/content/thrive-media";
 
 export function ExperienceThrive() {
   return (
@@ -7,11 +8,24 @@ export function ExperienceThrive() {
       <div className="section-x">
         <p className="eyebrow text-primary">2025</p>
         <h2 className="mt-4 text-4xl sm:text-5xl">Experience Thrive</h2>
-        <p className="mt-4 max-w-xl text-muted-foreground">
-          A glimpse into Thrive Summit 2025.
-        </p>
+        <p className="mt-4 max-w-xl text-muted-foreground">A glimpse into Thrive Summit 2025.</p>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {SNIPPETS_2025.map((video, index) => (
+            <video
+              key={video}
+              src={video}
+              poster={SNIPPET_POSTERS_2025[index]}
+              controls
+              playsInline
+              preload="metadata"
+              aria-label={`Thrive Summit 2025 video snippet ${index + 1}`}
+              className="aspect-[9/16] h-auto w-full bg-ink object-cover"
+            />
+          ))}
+        </div>
+
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
           {REPLAYS_2025.map((video) => (
             <a
               key={video.youtubeId}
@@ -37,17 +51,7 @@ export function ExperienceThrive() {
             </a>
           ))}
 
-          <div className="flex flex-col">
-            <div className="flex aspect-video items-center justify-center border border-dashed border-border bg-muted">
-              <Film className="h-8 w-8 text-muted-foreground/60" aria-hidden />
-            </div>
-            <h3 className="mt-4 text-lg text-muted-foreground">Snippet coming soon</h3>
-          </div>
         </div>
-
-        <p className="mt-10 text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
-          Explore Thrive 2025 — page coming soon
-        </p>
       </div>
     </section>
   );
