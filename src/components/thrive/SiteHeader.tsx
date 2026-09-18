@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { EVENT } from "@/content/thrive";
+import { THRIVE_LOGO } from "@/content/thrive-media";
+import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { RegisterButton } from "./RegisterButton";
 
-type MenuItem = { label: string; note: string; href?: string };
+type MenuItem = { label: string; href?: string };
 
 const THRIVE_MENU: MenuItem[] = [
-  { label: "Thrive 2026", note: "The next summit — 7 November, Leicester" },
-  { label: "Thrive 2025", note: "The story, replays and photos" },
+  { label: "Thrive 2026", href: "/" },
+  { label: "Thrive 2025", href: "/thrive-2025" },
 ];
 
 const SPEAKERS_MENU: MenuItem[] = [
-  { label: "Speakers 2026", note: "Coming soon" },
-  { label: "Speakers 2025", note: "Last year's line-up" },
+  { label: "Speakers 2026" },
+  { label: "Speakers 2025" },
 ];
 
 function Dropdown({ label, items }: { label: string; items: MenuItem[] }) {
@@ -25,16 +28,16 @@ function Dropdown({ label, items }: { label: string; items: MenuItem[] }) {
         {label}
         <ChevronDown className="h-3.5 w-3.5" aria-hidden />
       </button>
-      <div className="invisible absolute left-1/2 top-full z-50 w-[34rem] -translate-x-1/2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        <div className="grid grid-cols-2 gap-2 border border-ink-border bg-ink p-3 shadow-2xl">
+      <div className="invisible absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <div className="border border-ink-border bg-ink p-2 shadow-2xl">
           {items.map((item) => (
-            <span
+            <a
               key={item.label}
-              className="block rounded-sm p-5 transition-colors hover:bg-white/5"
+              href={item.href ?? "#"}
+              className="block px-4 py-3 font-display text-lg text-ink-foreground transition-colors hover:bg-white/5 hover:text-primary"
             >
-              <span className="block font-display text-xl text-ink-foreground">{item.label}</span>
-              <span className="mt-1 block text-sm text-ink-muted">{item.note}</span>
-            </span>
+              {item.label}
+            </a>
           ))}
         </div>
       </div>
@@ -67,12 +70,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-ink-border bg-ink/95 backdrop-blur">
       <div className="section-x flex items-center justify-between gap-6">
         <a href="/" className="flex items-center gap-3 py-4">
-          <span className="rule-accent flex h-9 w-9 items-center justify-center font-display text-lg text-primary-foreground">
-            T
-          </span>
-          <span className="font-display text-xl leading-none text-ink-foreground">
-            Thrive<span className="text-primary">.</span>
-          </span>
+          <img src={THRIVE_LOGO} alt="Thrive Summit" className="h-12 w-auto object-contain sm:h-14" />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
@@ -87,27 +85,41 @@ export function SiteHeader() {
           <RegisterButton size="sm" />
         </nav>
 
-        <button
+        <Button
           type="button"
+          variant="ghost"
+          size="icon"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
-          className="p-2 text-ink-foreground lg:hidden"
+          className="text-ink-foreground hover:bg-white/5 hover:text-primary lg:hidden"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        </Button>
       </div>
 
       {open && (
         <div className="border-t border-ink-border bg-ink lg:hidden">
-          <div className="section-x flex flex-col gap-1 py-5">
-            {[...THRIVE_MENU, ...SPEAKERS_MENU].map((item) => (
-              <span key={item.label} className="py-2.5 text-ink-foreground">
-                <span className="font-display text-lg">{item.label}</span>
-                <span className="ml-2 text-sm text-ink-muted">{item.note}</span>
-              </span>
-            ))}
-            <span className="py-2.5 font-display text-lg text-ink-foreground">Resources</span>
-            <span className="py-2.5 font-display text-lg text-ink-foreground">About</span>
+          <div className="section-x py-4">
+            <Accordion type="multiple" className="w-full">
+              <AccordionItem value="thrive" className="border-ink-border">
+                <AccordionTrigger className="font-display text-lg text-ink-foreground hover:no-underline">Thrive</AccordionTrigger>
+                <AccordionContent className="flex flex-col pb-3">
+                  {THRIVE_MENU.map((item) => <a key={item.label} href={item.href} className="py-2 text-ink-muted hover:text-primary">{item.label}</a>)}
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="speakers" className="border-ink-border">
+                <AccordionTrigger className="font-display text-lg text-ink-foreground hover:no-underline">Speakers</AccordionTrigger>
+                <AccordionContent className="flex flex-col pb-3">
+                  {SPEAKERS_MENU.map((item) => <a key={item.label} href={item.href ?? "#"} className="py-2 text-ink-muted hover:text-primary">{item.label}</a>)}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+            <div className="flex flex-col border-b border-ink-border">
+              <span className="py-4 font-display text-lg text-ink-foreground">Resources</span>
+            </div>
+            <div className="flex flex-col border-b border-ink-border">
+              <span className="py-4 font-display text-lg text-ink-foreground">About</span>
+            </div>
             <div className="pt-3">
               <RegisterButton full />
             </div>

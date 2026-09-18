@@ -1,5 +1,6 @@
 import { Instagram, Youtube, Facebook, Mail } from "lucide-react";
 import { EVENT } from "@/content/thrive";
+import { THRIVE_LOGO } from "@/content/thrive-media";
 
 const NAV = ["Thrive 2026", "Thrive 2025", "Speakers", "Resources", "About"];
 
@@ -8,14 +9,7 @@ export function SiteFooter() {
     <footer className="border-t border-ink-border bg-ink py-16 text-ink-foreground">
       <div className="section-x grid gap-10 md:grid-cols-3">
         <div>
-          <div className="flex items-center gap-3">
-            <span className="rule-accent flex h-9 w-9 items-center justify-center font-display text-lg text-primary-foreground">
-              T
-            </span>
-            <span className="font-display text-xl leading-none">
-              Thrive<span className="text-primary">.</span>
-            </span>
-          </div>
+          <img src={THRIVE_LOGO} alt="Thrive Summit" className="h-20 w-auto object-contain" />
           <p className="mt-4 max-w-xs text-sm text-ink-muted">
             {EVENT.venue}, {EVENT.addressLines.join(", ")}
           </p>

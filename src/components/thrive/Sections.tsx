@@ -1,5 +1,5 @@
-import { ImageIcon, Building2 } from "lucide-react";
 import { PILLARS, TAKEAWAYS } from "@/content/thrive";
+import { SPONSORS_2025 } from "@/content/thrive-media";
 
 export function WhatIsThrive() {
   return (
@@ -18,7 +18,7 @@ export function WhatIsThrive() {
           </p>
           <p>
             One day in Leicester built around honest conversation, practical insight and the
-            people who make the next step possible — for your work, your purpose and your life.
+            people who make the next step possible for your work, your purpose and your life.
           </p>
           <p>
             2025 was the evidence. 2026 is the destination.
@@ -47,34 +47,6 @@ export function WhyThrive() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function PhotoCollage() {
-  const frames = ["lg:col-span-2 lg:row-span-2", "", "", "", ""];
-
-  return (
-    <section className="bg-ink py-20 text-ink-foreground sm:py-24">
-      <div className="section-x">
-        <p className="eyebrow text-primary">Thrive 2025</p>
-        <h2 className="mt-4 max-w-2xl text-4xl sm:text-5xl">One summit. Many stories.</h2>
-
-        <div className="mt-12 grid auto-rows-[10rem] grid-cols-2 gap-3 sm:auto-rows-[12rem] lg:grid-cols-4">
-          {frames.map((span, i) => (
-            <div
-              key={i}
-              className={`flex items-center justify-center border border-dashed border-ink-border bg-white/[0.03] ${span}`}
-            >
-              <ImageIcon className="h-7 w-7 text-ink-muted/50" aria-hidden />
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-8 text-sm text-ink-muted">
-          2025 photography will be placed here once the image library is supplied.
-        </p>
       </div>
     </section>
   );
@@ -113,7 +85,7 @@ export function Highlights2025() {
         <div className="mt-10 grid gap-px overflow-hidden bg-black/15 sm:grid-cols-3">
           {["Attendees", "Speakers", "Sessions"].map((label) => (
             <div key={label} className="bg-highlight/95 p-8">
-              <div className="font-display text-5xl">—</div>
+              <div className="font-display text-5xl">TBC</div>
               <div className="mt-2 text-xs font-bold uppercase tracking-[0.2em]">
                 2025 {label}
               </div>
@@ -138,18 +110,7 @@ export function Partners() {
           Those who helped make Thrive possible
         </h2>
 
-        <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden bg-border sm:grid-cols-3 lg:grid-cols-5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div key={i} className="flex h-28 items-center justify-center bg-background">
-              <Building2 className="h-7 w-7 text-muted-foreground/40" aria-hidden />
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-6 text-sm text-muted-foreground">
-          Logos shown here relate to Thrive Summit 2025. 2026 partners will be confirmed
-          separately.
-        </p>
+        <img src={SPONSORS_2025} alt="Official sponsors of Thrive Summit UK 2025" loading="lazy" width={1800} height={1125} className="mt-12 h-auto w-full border border-border object-contain" />
       </div>
     </section>
   );
