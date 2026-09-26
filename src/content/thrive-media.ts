@@ -18,18 +18,6 @@ import snippet03 from "@/assets/thrive/snippets/snippet-3.mp4.asset.json";
 import poster01 from "@/assets/thrive/posters/snippet-1.jpg.asset.json";
 import poster02 from "@/assets/thrive/posters/snippet-2.jpg.asset.json";
 import poster03 from "@/assets/thrive/posters/snippet-3.jpg.asset.json";
-import speakerFull01 from "@/assets/thrive/speakers-full/speaker-01.png.asset.json";
-import speakerFull02 from "@/assets/thrive/speakers-full/speaker-02.png.asset.json";
-import speakerFull03 from "@/assets/thrive/speakers-full/speaker-03.png.asset.json";
-import speakerFull04 from "@/assets/thrive/speakers-full/speaker-04.png.asset.json";
-import speakerFull05 from "@/assets/thrive/speakers-full/speaker-05.png.asset.json";
-import speakerFull06 from "@/assets/thrive/speakers-full/speaker-06.png.asset.json";
-import speakerFull07 from "@/assets/thrive/speakers-full/speaker-07.png.asset.json";
-import speakerFull08 from "@/assets/thrive/speakers-full/speaker-08.png.asset.json";
-import speakerFull09 from "@/assets/thrive/speakers-full/speaker-09.png.asset.json";
-import speakerFull10 from "@/assets/thrive/speakers-full/speaker-10.png.asset.json";
-import speakerFull11 from "@/assets/thrive/speakers-full/speaker-11.png.asset.json";
-import speakerFull12 from "@/assets/thrive/speakers-full/speaker-12.png.asset.json";
 
 export const THRIVE_LOGO = logoAsset.url;
 
@@ -47,20 +35,6 @@ export const HOMEPAGE_MEMORIES = [
 ] as const;
 
 export const SPEAKER_ARTWORK_2025 = [speaker01.url, speaker02.url] as const;
-export const SPEAKER_INFOGRAPHICS_2025 = [
-  speakerFull01.url,
-  speakerFull02.url,
-  speakerFull03.url,
-  speakerFull04.url,
-  speakerFull05.url,
-  speakerFull06.url,
-  speakerFull07.url,
-  speakerFull08.url,
-  speakerFull09.url,
-  speakerFull10.url,
-  speakerFull11.url,
-  speakerFull12.url,
-] as const;
 export const SPONSORS_2025 = sponsors.url;
 export const SNIPPETS_2025 = [snippet01.url, snippet02.url, snippet03.url] as const;
 export const SNIPPET_POSTERS_2025 = [poster01.url, poster02.url, poster03.url] as const;

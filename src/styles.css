@@ -158,27 +158,13 @@
   will-change: transform;
 }
 
-@utility speaker-marquee-track {
-  animation: thrive-marquee 92s linear infinite;
-  will-change: transform;
-}
-
 .marquee-viewport:hover .marquee-track,
 .marquee-viewport:focus-within .marquee-track {
   animation-play-state: paused;
 }
 
-.speaker-marquee-viewport:hover .speaker-marquee-track,
-.speaker-marquee-viewport:focus-within .speaker-marquee-track {
-  animation-play-state: paused;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
-    animation: none;
-  }
-
-  .speaker-marquee-track {
     animation: none;
   }
 }
