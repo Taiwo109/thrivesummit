@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project architecture
+
+- Host externally sourced event videos and supplied image media through Lovable Assets so the site has no embedded third-party player dependencies.

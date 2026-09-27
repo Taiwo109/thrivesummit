@@ -1,43 +1,81 @@
-import { EVENT } from "@/content/thrive";
+import { useEffect, useRef, useState } from "react";
+import { Volume2, VolumeX } from "lucide-react";
+import { HERO_MONTAGE } from "@/content/thrive-media";
+import { Button } from "@/components/ui/button";
 import { RegisterButton } from "./RegisterButton";
-import heroBg from "@/assets/hero-bg.jpg";
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          void video.play().catch(() => undefined);
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+    if (video.paused) void video.play().catch(() => undefined);
+  };
+
   return (
-    <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
-      <img
-        src={heroBg}
-        alt=""
-        aria-hidden
-        width={1920}
-        height={1088}
-        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-70"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/75 to-ink/40"
-      />
+    <>
+      <section className="relative overflow-hidden bg-ink" aria-label="Thrive Summit montage">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted={muted}
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Thrive Summit event montage"
+          className="block h-auto w-full"
+        >
+          <source media="(max-width: 767px)" src={HERO_MONTAGE.mobile} type="video/mp4" />
+          <source src={HERO_MONTAGE.desktop} type="video/mp4" />
+        </video>
+        <Button
+          type="button"
+          variant="secondary"
+          size="icon"
+          onClick={toggleSound}
+          aria-label={muted ? "Unmute montage" : "Mute montage"}
+          title={muted ? "Unmute montage" : "Mute montage"}
+          className="absolute bottom-4 right-4 border border-ink-border bg-ink/80 text-ink-foreground hover:bg-ink sm:bottom-6 sm:right-6"
+        >
+          {muted ? <VolumeX aria-hidden /> : <Volume2 aria-hidden />}
+        </Button>
+      </section>
 
-      <div className="section-x flex min-h-[clamp(34rem,82vh,46rem)] flex-col justify-end py-20 sm:py-28">
-        <p className="eyebrow text-primary">Thrive Summit 2026</p>
-        <h1 className="mt-5 max-w-4xl text-[clamp(2.75rem,9vw,6.5rem)]">
-          From surviving
-          <br />
-          to <span className="text-primary">thriving.</span>
-        </h1>
-
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold uppercase tracking-[0.18em] text-ink-muted">
-          <span>{EVENT.dateLabel}</span>
-          <span aria-hidden className="h-4 w-px bg-ink-border" />
-          <span>
-            {EVENT.venue}, {EVENT.city}
-          </span>
+      <section className="bg-ink py-12 text-ink-foreground sm:py-16">
+        <div className="section-x flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
+          <h1 className="max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
+            From surviving
+            <br />
+            to <span className="text-primary">thriving.</span>
+          </h1>
+          <div className="shrink-0">
+            <RegisterButton />
+          </div>
         </div>
-
-        <div className="mt-10">
-          <RegisterButton />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
