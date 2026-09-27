@@ -7,10 +7,19 @@ import { RegisterButton } from "./RegisterButton";
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const [montageSrc, setMontageSrc] = useState<string>();
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 767px)");
+    const selectMontage = () => setMontageSrc(query.matches ? HERO_MONTAGE.mobile : HERO_MONTAGE.desktop);
+    selectMontage();
+    query.addEventListener("change", selectMontage);
+    return () => query.removeEventListener("change", selectMontage);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !montageSrc) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -25,7 +34,7 @@ export function Hero() {
 
     observer.observe(video);
     return () => observer.disconnect();
-  }, []);
+  }, [montageSrc]);
 
   const toggleSound = () => {
     const video = videoRef.current;
@@ -39,7 +48,9 @@ export function Hero() {
     <>
       <section className="relative overflow-hidden bg-ink" aria-label="Thrive Summit montage">
         <video
+          key={montageSrc}
           ref={videoRef}
+          src={montageSrc}
           autoPlay
           muted={muted}
           loop
@@ -47,10 +58,7 @@ export function Hero() {
           preload="metadata"
           aria-label="Thrive Summit event montage"
           className="block h-auto w-full"
-        >
-          <source media="(max-width: 767px)" src={HERO_MONTAGE.mobile} type="video/mp4" />
-          <source src={HERO_MONTAGE.desktop} type="video/mp4" />
-        </video>
+        />
         <Button
           type="button"
           variant="secondary"
