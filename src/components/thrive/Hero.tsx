@@ -56,6 +56,11 @@ export function Hero() {
           loop
           playsInline
           preload="metadata"
+          onCanPlay={(event) => {
+            if (event.currentTarget.getBoundingClientRect().bottom > 0) {
+              void event.currentTarget.play().catch(() => undefined);
+            }
+          }}
           aria-label="Thrive Summit event montage"
           className="block h-auto w-full"
         />
