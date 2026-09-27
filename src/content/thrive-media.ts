@@ -9,8 +9,6 @@ import memory07 from "@/assets/thrive/homepage/memory-07.webp.asset.json";
 import memory08 from "@/assets/thrive/homepage/memory-08.webp.asset.json";
 import memory09 from "@/assets/thrive/homepage/memory-09.webp.asset.json";
 import memory10 from "@/assets/thrive/homepage/memory-10.webp.asset.json";
-import speaker01 from "@/assets/thrive/speakers/speaker-1.webp.asset.json";
-import speaker02 from "@/assets/thrive/speakers/speaker-2.webp.asset.json";
 import sponsors from "@/assets/thrive/sponsors/sponsors-2025.webp.asset.json";
 import snippet01 from "@/assets/thrive/snippets/snippet-1.mp4.asset.json";
 import snippet02 from "@/assets/thrive/snippets/snippet-2.mp4.asset.json";
