@@ -8,6 +8,7 @@
 - Increase each mobile speaker graphic so its full portrait design and text remain readable.
 - Keep the continuous right-to-left movement with a small, consistent gap of about 1 to 1.5 rem between graphics.
 - Prevent clipping and horizontal page overflow while allowing one dominant speaker graphic to remain visible at a time.
+- Start with the Host Graphics an this is one hing you can edit on desktop as well starting with the Host image you will see beneath her name its written host with red background 
 
 ## Check
 
