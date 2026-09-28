@@ -12,3 +12,4 @@
 ## Project architecture
 
 - Host externally sourced event videos and supplied image media through Lovable Assets so the site has no embedded third-party player dependencies.
+- Store speaker names and roles as structured content and render them as page text, keeping portrait assets free of baked-in labels for consistent quality and accessibility.

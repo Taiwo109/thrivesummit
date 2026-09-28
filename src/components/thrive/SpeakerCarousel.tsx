@@ -1,16 +1,33 @@
-import { SPEAKER_ARTWORK_2025, THRIVE_LOGO } from "@/content/thrive-media";
+import { SPEAKERS_2025, THRIVE_LOGO } from "@/content/thrive-media";
 
-function SpeakerCard({ image, number }: { image: string; number: number }) {
+type Speaker = (typeof SPEAKERS_2025)[number];
+
+function SpeakerCard({ speaker }: { speaker: Speaker }) {
   return (
-    <article className="w-[70vw] max-w-[17rem] shrink-0 sm:w-[15rem] sm:max-w-none lg:w-[13rem]">
-      <img
-        src={image}
-        alt={`Thrive Summit UK 2025 speaker ${number}`}
-        loading="lazy"
-        width={270}
-        height={780}
-        className="h-auto w-full object-contain sm:h-[34rem]"
-      />
+    <article className="grid h-[29rem] w-[78vw] max-w-[18rem] shrink-0 grid-rows-[19rem_1fr] overflow-hidden rounded-md border border-ink-border bg-card text-card-foreground sm:h-[31rem] sm:w-[17rem] sm:grid-rows-[21rem_1fr] lg:w-[16rem]">
+      <div className="relative overflow-hidden bg-primary">
+        <img
+          src={speaker.image}
+          alt={speaker.name}
+          loading="lazy"
+          width={800}
+          height={1000}
+          className="h-full w-full object-cover object-top"
+        />
+        {"badge" in speaker ? (
+          <span className="absolute bottom-3 left-3 bg-destructive px-3 py-1 text-xs font-extrabold uppercase text-destructive-foreground">
+            {speaker.badge}
+          </span>
+        ) : null}
+      </div>
+      <div className="flex min-h-0 flex-col border-t-4 border-primary px-5 py-4">
+        <h3 className="text-balance font-sans text-xl font-extrabold normal-case leading-tight sm:text-[1.35rem]">
+          {speaker.name}
+        </h3>
+        <p className="mt-2 text-sm font-semibold leading-snug text-muted-foreground">
+          {speaker.role}
+        </p>
+      </div>
     </article>
   );
 }
@@ -28,12 +45,12 @@ export function SpeakerCarousel() {
           </p>
         </div>
 
-        <div className="speaker-marquee-viewport min-w-0 overflow-hidden">
+        <div className="speaker-marquee-viewport min-w-0 overflow-hidden py-1">
           <div className="speaker-marquee-track flex w-max">
             {[0, 1].map((copy) => (
-              <div key={copy} className="flex shrink-0 gap-5 pr-5" aria-hidden={copy === 1}>
-                {SPEAKER_ARTWORK_2025.map((image, index) => (
-                  <SpeakerCard key={`${copy}-${image}`} image={image} number={index + 1} />
+              <div key={copy} className="flex shrink-0 gap-5 pr-5 sm:gap-6 sm:pr-6" aria-hidden={copy === 1}>
+                {SPEAKERS_2025.map((speaker) => (
+                  <SpeakerCard key={`${copy}-${speaker.name}`} speaker={speaker} />
                 ))}
               </div>
             ))}
