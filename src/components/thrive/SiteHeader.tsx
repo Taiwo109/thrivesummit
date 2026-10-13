@@ -10,7 +10,7 @@ type MenuItem = { label: string; href?: string };
 
 const THRIVE_MENU: MenuItem[] = [
   { label: "Thrive 2026", href: "/" },
-  { label: "Thrive 2025", href: "/thrive-2025" },
+  { label: "Experience 2025", href: "/experience-2025" },
 ];
 
 const SPEAKERS_MENU: MenuItem[] = [
