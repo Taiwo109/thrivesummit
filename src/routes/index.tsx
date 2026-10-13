@@ -1,25 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-
-import { AnnouncementBar, SiteHeader } from "@/components/thrive/SiteHeader";
-import { Hero } from "@/components/thrive/Hero";
-import { Countdown } from "@/components/thrive/Countdown";
 import {
-  WhatIsThrive,
-  WhyThrive,
-  WhatYouLeaveWith,
-  Highlights2025,
-  Partners,
-} from "@/components/thrive/Sections";
-import { SpeakerCarousel } from "@/components/thrive/SpeakerCarousel";
-import { ExperienceThrive } from "@/components/thrive/ExperienceThrive";
-import { Venue } from "@/components/thrive/Venue";
-import { FinalCTA } from "@/components/thrive/FinalCTA";
-import { SiteFooter } from "@/components/thrive/SiteFooter";
-import { MemoriesCarousel } from "@/components/thrive/MemoriesCarousel";
+  Header2026, Hero2026, InfoStrip, Intro, WhyAttend, WhoFor, Speakers2026,
+  Programme2026, Sponsors2026, Experience2025Teaser, Venue2026, FinalCTA2026, Footer2026,
+} from "@/components/thrive/Home2026";
 
-const title = "Thrive Summit UK 2026 | 7 November, Leicester";
+const title = "Thrive Summit UK 2026 | Building Beyond Limits, Leicester";
 const description =
-  "Thrive Summit UK 2026, from surviving to thriving. Saturday 7 November 2026 at The Envoy Nation, Leicester. A day of exposure, knowledge, connection and action.";
+  "Free summit for career professionals and business owners. Saturday 7 November 2026 at The Envoy Nation, Leicester. Learn, connect and grow.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,29 +19,27 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Index,
+  component: Home2026,
 });
 
-function Index() {
+function Home2026() {
   return (
     <div className="min-h-screen bg-background">
-      <AnnouncementBar />
-      <SiteHeader />
+      <Header2026 />
       <main>
-        <Hero />
-        <Countdown />
-        <WhatIsThrive />
-        <WhyThrive />
-        <SpeakerCarousel />
-        <ExperienceThrive />
-        <MemoriesCarousel />
-        <WhatYouLeaveWith />
-        <Highlights2025 />
-        <Partners />
-        <Venue />
-        <FinalCTA />
+        <Hero2026 />
+        <InfoStrip />
+        <Intro />
+        <WhyAttend />
+        <WhoFor />
+        <Speakers2026 />
+        <Programme2026 />
+        <Sponsors2026 />
+        <Experience2025Teaser />
+        <Venue2026 />
+        <FinalCTA2026 />
       </main>
-      <SiteFooter />
+      <Footer2026 />
     </div>
   );
 }

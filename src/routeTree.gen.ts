@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Experience2025RouteImport } from './routes/experience-2025'
 import { Route as Thrive2025RouteImport } from './routes/thrive-2025'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Experience2025Route = Experience2025RouteImport.update({
+  id: '/experience-2025',
+  path: '/experience-2025',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Thrive2025Route = Thrive2025RouteImport.update({
@@ -25,27 +31,31 @@ const Thrive2025Route = Thrive2025RouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/experience-2025': typeof Experience2025Route
   '/thrive-2025': typeof Thrive2025Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/experience-2025': typeof Experience2025Route
   '/thrive-2025': typeof Thrive2025Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/experience-2025': typeof Experience2025Route
   '/thrive-2025': typeof Thrive2025Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/thrive-2025'
+  fullPaths: '/' | '/experience-2025' | '/thrive-2025'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/thrive-2025'
-  id: '__root__' | '/' | '/thrive-2025'
+  to: '/' | '/experience-2025' | '/thrive-2025'
+  id: '__root__' | '/' | '/experience-2025' | '/thrive-2025'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  Experience2025Route: typeof Experience2025Route
   Thrive2025Route: typeof Thrive2025Route
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experience-2025': {
+      id: '/experience-2025'
+      path: '/experience-2025'
+      fullPath: '/experience-2025'
+      preLoaderRoute: typeof Experience2025RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/thrive-2025': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  Experience2025Route: Experience2025Route,
   Thrive2025Route: Thrive2025Route,
 }
 export const routeTree = rootRouteImport
