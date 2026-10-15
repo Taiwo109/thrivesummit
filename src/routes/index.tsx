@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Header2026, Hero2026, InfoStrip, Intro, WhyAttend, WhoFor, Speakers2026,
+  Header2026, Hero2026, Intro, WhyAttend, WhoFor, Speakers2026,
   Programme2026, Sponsors2026, Experience2025Teaser, Venue2026, FinalCTA2026, Footer2026,
 } from "@/components/thrive/Home2026";
+import { Countdown } from "@/components/thrive/Countdown";
 
 const title = "Thrive Summit UK 2026 | Building Beyond Limits, Leicester";
 const description =
@@ -28,7 +29,7 @@ function Home2026() {
       <Header2026 />
       <main>
         <Hero2026 />
-        <InfoStrip />
+        <Countdown />
         <Intro />
         <WhyAttend />
         <WhoFor />
