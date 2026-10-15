@@ -9,7 +9,7 @@ export const EVENT = {
   theme: "From Surviving to Thriving.",
   dateLabel: "7 November 2026",
   dayLabel: "Saturday 7 November 2026",
-  timeLabel: "11:00 AM to 4:00 PM",
+  timeLabel: "Doors open at 11:00 AM",
   venue: "The Envoy Nation",
   addressLines: ["66 Burleys Way", "Leicester", "LE1 3BD", "United Kingdom"],
   city: "Leicester",

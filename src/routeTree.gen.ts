@@ -10,12 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as Experience2025RouteImport } from './routes/experience-2025'
+import { Route as ProgrammeRouteImport } from './routes/programme'
+import { Route as SpeakersRouteImport } from './routes/speakers'
+import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as Thrive2025RouteImport } from './routes/thrive-2025'
+import { Route as VenueTravelRouteImport } from './routes/venue-travel'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Experience2025Route = Experience2025RouteImport.update({
@@ -23,40 +33,105 @@ const Experience2025Route = Experience2025RouteImport.update({
   path: '/experience-2025',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProgrammeRoute = ProgrammeRouteImport.update({
+  id: '/programme',
+  path: '/programme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpeakersRoute = SpeakersRouteImport.update({
+  id: '/speakers',
+  path: '/speakers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SponsorsRoute = SponsorsRouteImport.update({
+  id: '/sponsors',
+  path: '/sponsors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Thrive2025Route = Thrive2025RouteImport.update({
   id: '/thrive-2025',
   path: '/thrive-2025',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VenueTravelRoute = VenueTravelRouteImport.update({
+  id: '/venue-travel',
+  path: '/venue-travel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/experience-2025': typeof Experience2025Route
+  '/programme': typeof ProgrammeRoute
+  '/speakers': typeof SpeakersRoute
+  '/sponsors': typeof SponsorsRoute
   '/thrive-2025': typeof Thrive2025Route
+  '/venue-travel': typeof VenueTravelRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/experience-2025': typeof Experience2025Route
+  '/programme': typeof ProgrammeRoute
+  '/speakers': typeof SpeakersRoute
+  '/sponsors': typeof SponsorsRoute
   '/thrive-2025': typeof Thrive2025Route
+  '/venue-travel': typeof VenueTravelRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/experience-2025': typeof Experience2025Route
+  '/programme': typeof ProgrammeRoute
+  '/speakers': typeof SpeakersRoute
+  '/sponsors': typeof SponsorsRoute
   '/thrive-2025': typeof Thrive2025Route
+  '/venue-travel': typeof VenueTravelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/experience-2025' | '/thrive-2025'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/experience-2025'
+    | '/programme'
+    | '/speakers'
+    | '/sponsors'
+    | '/thrive-2025'
+    | '/venue-travel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/experience-2025' | '/thrive-2025'
-  id: '__root__' | '/' | '/experience-2025' | '/thrive-2025'
+  to:
+    | '/'
+    | '/about'
+    | '/experience-2025'
+    | '/programme'
+    | '/speakers'
+    | '/sponsors'
+    | '/thrive-2025'
+    | '/venue-travel'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/experience-2025'
+    | '/programme'
+    | '/speakers'
+    | '/sponsors'
+    | '/thrive-2025'
+    | '/venue-travel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   Experience2025Route: typeof Experience2025Route
+  ProgrammeRoute: typeof ProgrammeRoute
+  SpeakersRoute: typeof SpeakersRoute
+  SponsorsRoute: typeof SponsorsRoute
   Thrive2025Route: typeof Thrive2025Route
+  VenueTravelRoute: typeof VenueTravelRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,11 +143,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/experience-2025': {
       id: '/experience-2025'
       path: '/experience-2025'
       fullPath: '/experience-2025'
       preLoaderRoute: typeof Experience2025RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programme': {
+      id: '/programme'
+      path: '/programme'
+      fullPath: '/programme'
+      preLoaderRoute: typeof ProgrammeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/speakers': {
+      id: '/speakers'
+      path: '/speakers'
+      fullPath: '/speakers'
+      preLoaderRoute: typeof SpeakersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sponsors': {
+      id: '/sponsors'
+      path: '/sponsors'
+      fullPath: '/sponsors'
+      preLoaderRoute: typeof SponsorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/thrive-2025': {
@@ -82,13 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Thrive2025RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/venue-travel': {
+      id: '/venue-travel'
+      path: '/venue-travel'
+      fullPath: '/venue-travel'
+      preLoaderRoute: typeof VenueTravelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   Experience2025Route: Experience2025Route,
+  ProgrammeRoute: ProgrammeRoute,
+  SpeakersRoute: SpeakersRoute,
+  SponsorsRoute: SponsorsRoute,
   Thrive2025Route: Thrive2025Route,
+  VenueTravelRoute: VenueTravelRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -119,11 +119,38 @@
   h3 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
     text-transform: uppercase;
     line-height: 0.95;
   }
 }
+
+/* Editorial event layouts share the original Thrive palette. */
+.nav-link { font-size: .68rem; font-weight: 700; text-transform: uppercase; padding-block: 1.7rem; border-bottom: 2px solid transparent; }
+.nav-link:hover, .nav-active { color: var(--primary); border-color: var(--primary); }
+.mobile-nav-link { display: flex; align-items: center; justify-content: space-between; padding-block: .9rem; border-bottom: 1px solid var(--ink-border); font-weight: 700; }
+.editorial-hero { min-height: 640px; }
+.hero-heading { font-size: 5.25rem; line-height: 1.02; }
+.hero-event-image { position: absolute; inset: 0 0 0 auto; width: 43%; height: 100%; object-fit: cover; object-position: center; opacity: .7; }
+.hero-image-shade { position: absolute; inset: 0; background: linear-gradient(90deg, var(--ink) 48%, transparent 88%); }
+.hero-photo-label { position: absolute; right: 2rem; bottom: 2rem; font-size: .7rem; color: var(--ink-foreground); }
+.intro-photo { height: 370px; object-position: 50% 40%; }
+.montage-video { aspect-ratio: 16 / 9; }
+.page-heading { font-size: 4.5rem; line-height: 1.04; }
+.venue-map { height: 510px; width: 100%; border: 0; }
+:where(a, button, video):focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+@media (max-width: 767px) {
+  .editorial-hero { min-height: auto; }
+  .hero-heading { font-size: 3.5rem; }
+  .hero-event-image { width: 100%; opacity: .18; }
+  .hero-image-shade { background: linear-gradient(0deg, var(--ink), transparent); }
+  .hero-photo-label { display: none; }
+  .intro-photo { height: 270px; }
+  .montage-video { aspect-ratio: 9 / 16; max-height: 680px; }
+  .page-heading { font-size: 3rem; }
+  .venue-map { height: 430px; }
+}
+@media (max-width: 374px) { .hero-heading { font-size: 3rem; } }
 
 @utility eyebrow {
   font-size: 0.75rem;

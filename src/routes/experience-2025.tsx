@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { AnnouncementBar, SiteHeader } from "@/components/thrive/SiteHeader";
+import { Link } from "@tanstack/react-router";
+import { SiteHeader, SiteFooter } from "@/components/thrive/SiteChrome";
 import { Hero } from "@/components/thrive/Hero";
-import { Countdown } from "@/components/thrive/Countdown";
 import {
   WhatIsThrive,
   WhyThrive,
@@ -12,9 +12,7 @@ import {
 } from "@/components/thrive/Sections";
 import { SpeakerCarousel } from "@/components/thrive/SpeakerCarousel";
 import { ExperienceThrive } from "@/components/thrive/ExperienceThrive";
-import { Venue } from "@/components/thrive/Venue";
 import { FinalCTA } from "@/components/thrive/FinalCTA";
-import { SiteFooter } from "@/components/thrive/SiteFooter";
 import { MemoriesCarousel } from "@/components/thrive/MemoriesCarousel";
 
 const title = "Experience Thrive Summit UK 2025 | Highlights";
@@ -38,11 +36,10 @@ export const Route = createFileRoute("/experience-2025")({
 function Experience2025() {
   return (
     <div className="min-h-screen bg-background">
-      <AnnouncementBar />
       <SiteHeader />
       <main>
+        <div className="bg-primary py-3 text-center text-sm font-semibold text-primary-foreground">Reliving Thrive Summit UK 2025. <Link to="/" className="underline underline-offset-4">Discover Thrive 2026</Link></div>
         <Hero />
-        <Countdown />
         <WhatIsThrive />
         <WhyThrive />
         <SpeakerCarousel />
@@ -51,7 +48,6 @@ function Experience2025() {
         <WhatYouLeaveWith />
         <Highlights2025 />
         <Partners />
-        <Venue />
         <FinalCTA />
       </main>
       <SiteFooter />

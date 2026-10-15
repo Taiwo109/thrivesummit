@@ -17,5 +17,5 @@ export const PROGRAMME_2026 = [
   { time: "12:00pm to 1:30pm", what: "Welcome, opening and keynote sessions." },
   { time: "1:30pm to 2:15pm", what: "Lunch and networking." },
   { time: "2:15pm to 4:00pm", what: "Panel discussions, practical sessions and Q&A." },
-  { time: "4:00pm onwards", what: "Live raffle, closing, and final networking and photos." },
+  { time: "4:00pm to 5:00pm", what: "Live raffle, closing, and final networking and photos." },
 ] as const;

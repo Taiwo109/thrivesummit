@@ -1,50 +1,34 @@
 import { useEffect, useState } from "react";
-import { EVENT } from "@/content/thrive";
+import { eventCountdown } from "@/lib/thrive-countdown";
 
 const UNITS = ["Days", "Hours", "Minutes", "Seconds"] as const;
 
-function diff(target: number) {
-  const ms = Math.max(0, target - Date.now());
-  return [
-    Math.floor(ms / 86_400_000),
-    Math.floor(ms / 3_600_000) % 24,
-    Math.floor(ms / 60_000) % 60,
-    Math.floor(ms / 1000) % 60,
-  ];
-}
-
 export function Countdown() {
-  const target = new Date(EVENT.startsAtISO).getTime();
-  const [values, setValues] = useState<number[] | null>(null);
+  const [countdown, setCountdown] = useState<ReturnType<typeof eventCountdown> | null>(null);
 
   useEffect(() => {
-    setValues(diff(target));
-    const id = setInterval(() => setValues(diff(target)), 1000);
+    const update = () => setCountdown(eventCountdown(Date.now()));
+    update();
+    const id = setInterval(update, 1000);
     return () => clearInterval(id);
-  }, [target]);
+  }, []);
 
   return (
-    <section className="bg-ink py-16 text-ink-foreground sm:py-20">
-      <div className="section-x text-center">
-        <p className="eyebrow text-primary">The countdown to Thrive</p>
-        <h2 className="mt-4 text-4xl sm:text-5xl">{EVENT.dayLabel}</h2>
-
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
+    <section className="border-y border-ink-border bg-ink py-8 text-ink-foreground" aria-label="Countdown to Thrive Summit UK 2026">
+      <div className="section-x grid items-center gap-7 md:grid-cols-[1fr_1.2fr]">
+        <div><p className="eyebrow text-primary">The next chapter is coming</p><h2 className="mt-3 text-3xl">7 November 2026</h2><p className="mt-2 text-sm text-ink-muted">Doors open at 11am, Leicester (GMT)</p></div>
+        {countdown && countdown.status !== "upcoming" ? <p role="status" className="font-display text-3xl text-primary">{countdown.status === "event-day" ? "Today, we Thrive. Welcome to Leicester." : "Thank you for being part of Thrive 2026."}</p> : <div className="grid grid-cols-4 gap-3" role="timer" aria-label="Time until the event begins">
           {UNITS.map((unit, i) => (
-            <div key={unit} className="border border-ink-border bg-white/[0.03] px-4 py-6">
-              <div className="font-display text-4xl tabular-nums text-primary sm:text-6xl">
-                {values ? String(values[i]).padStart(2, "0") : "--"}
+            <div key={unit} className="border-l border-ink-border pl-3 sm:pl-6">
+              <div className="font-display text-4xl tabular-nums text-primary sm:text-5xl">
+                {countdown ? String(countdown.values[i]).padStart(2, "0") : "··"}
               </div>
               <div className="mt-2 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-ink-muted">
                 {unit}
               </div>
             </div>
           ))}
-        </div>
-
-        <p className="mt-8 text-sm text-ink-muted">
-          {EVENT.timeLabel} · {EVENT.venue}, {EVENT.city}
-        </p>
+        </div>}
       </div>
     </section>
   );

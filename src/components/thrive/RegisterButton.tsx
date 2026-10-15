@@ -1,4 +1,5 @@
 import { EVENT } from "@/content/thrive";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   size?: "sm" | "lg";
@@ -10,28 +11,24 @@ type Props = {
  * Registration is not open yet: the 2025 Eventbrite link must NOT be reused.
  * The button becomes a real link as soon as EVENT.registrationUrl is set.
  */
-export function RegisterButton({ size = "lg", full = false, label = "Register Now" }: Props) {
-  const base =
-    "inline-flex items-center justify-center font-bold uppercase tracking-[0.16em] transition-colors";
-  const sizing = size === "sm" ? "px-5 py-2.5 text-xs" : "px-8 py-4 text-sm";
-  const width = full ? "w-full" : "";
+export function RegisterButton({ size = "lg", full = false, label = "Register Free" }: Props) {
+  const classes = `${full ? "w-full" : ""} ${size === "sm" ? "text-xs px-4 py-3" : ""}`;
 
   if (!EVENT.registrationUrl) {
     return (
-      <span className={`${base} ${sizing} ${width} cursor-not-allowed bg-primary/25 text-ink-foreground/70 ring-1 ring-primary/40`}>
-        Registration opening soon
-      </span>
+      <Button variant="event" size="event" disabled className={classes} title="Registration opening soon" aria-label={`${label}, registration opening soon`}>
+        {label}<span className="text-[0.65rem] normal-case">Opening soon</span>
+      </Button>
     );
   }
 
   return (
-    <a
+    <Button asChild variant="event" size="event" className={classes}><a
       href={EVENT.registrationUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${base} ${sizing} ${width} bg-primary text-primary-foreground hover:bg-highlight`}
     >
       {label}
-    </a>
+    </a></Button>
   );
 }
