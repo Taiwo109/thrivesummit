@@ -133,7 +133,7 @@
 .hero-heading { font-size: 4.5rem; line-height: 1.04; }
 .hero-2026-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 3rem; }
 .hero-2026-artwork { margin: 0; border-top: 3px solid var(--primary); padding-top: 1rem; }
-.hero-2026-artwork img { object-fit: contain; }
+.hero-2026-artwork img { object-fit: cover; aspect-ratio: 4 / 5; }
 .site-header .nav-link { transition: color 180ms ease, border-color 180ms ease; }
 .hero-event-image { position: absolute; inset: 0 0 0 auto; width: 43%; height: 100%; object-fit: cover; object-position: center; opacity: .7; }
 .hero-image-shade { position: absolute; inset: 0; background: linear-gradient(90deg, var(--ink) 48%, transparent 88%); }

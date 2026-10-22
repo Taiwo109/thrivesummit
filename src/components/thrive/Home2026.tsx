@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { HOMEPAGE_MEMORIES } from "@/content/thrive-media";
 import { EVENT_2026, PROGRAMME_2026 } from "@/content/thrive-2026";
 import { EVENT, PILLARS } from "@/content/thrive";
-import officialFlyer from "@/assets/thrive/2026/official-flyer.jpg.asset.json";
 import { RegisterButton } from "./RegisterButton";
 import { Montage } from "./Montage";
 export { SiteHeader as Header2026, SiteFooter as Footer2026 } from "./SiteChrome";
@@ -18,7 +17,7 @@ export function Hero2026() {
       <ul className="mt-7 flex max-w-xl flex-wrap gap-x-5 gap-y-2 border-t border-ink-border pt-6 text-sm font-semibold"><li>{EVENT_2026.dayLabel}</li><li>{EVENT.timeLabel}</li><li>The Envoy Nation, Leicester</li><li className="text-primary">Free registration</li></ul>
       <div className="mt-8 flex flex-wrap gap-3"><RegisterButton /><Button asChild variant="eventOutline" size="event"><Link to="/about">Discover Thrive <ArrowUpRight aria-hidden /></Link></Button></div>
       <p className="mt-6 text-xs text-ink-muted">Dress code: {EVENT.dressCode}</p>
-    </div><figure className="hero-2026-artwork"><img src={officialFlyer.url} alt="Official Thrive Summit UK 2026 flyer, Saturday 28 November, 10am to 3pm at The Envoy Nation in Leicester" className="h-auto w-full" fetchPriority="high" width="768" height="768" /><figcaption className="mt-4 flex justify-between gap-4 text-xs text-ink-muted"><span>Business. Career. Beyond limits.</span><span className="text-primary">Leicester · 2026</span></figcaption></figure></div>
+    </div><figure className="hero-2026-artwork"><img src={HOMEPAGE_MEMORIES[1]} alt="Guests in conversation at Thrive Summit UK 2025" className="h-auto w-full" fetchPriority="high" width="900" height="1200" /><figcaption className="mt-4 flex justify-between gap-4 text-xs text-ink-muted"><span>Business. Career. Beyond limits.</span><span className="text-primary">Leicester · 2026</span></figcaption></figure></div>
   </section>;
 }
 
