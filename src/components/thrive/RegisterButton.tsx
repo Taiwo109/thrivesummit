@@ -1,5 +1,6 @@
 import { EVENT } from "@/content/thrive";
 import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 
 type Props = {
   size?: "sm" | "lg";
@@ -8,8 +9,7 @@ type Props = {
 };
 
 /**
- * Registration is not open yet: the 2025 Eventbrite link must NOT be reused.
- * The button becomes a real link as soon as EVENT.registrationUrl is set.
+ * All upcoming-event CTAs share the approved registration destination.
  */
 export function RegisterButton({ size = "lg", full = false, label = "Register Free" }: Props) {
   const classes = `${full ? "w-full" : ""} ${size === "sm" ? "text-xs px-4 py-3" : ""}`;
@@ -28,7 +28,7 @@ export function RegisterButton({ size = "lg", full = false, label = "Register Fr
       target="_blank"
       rel="noopener noreferrer"
     >
-      {label}
+      {label}<ArrowUpRight aria-hidden className="h-4 w-4 shrink-0" />
     </a></Button>
   );
 }
