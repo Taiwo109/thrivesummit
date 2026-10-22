@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/thrive/thrive-logo.webp.asset.json";
+import logoAsset from "@/assets/thrive/thrive-logo-2026.webp.asset.json";
 import memory01 from "@/assets/thrive/homepage/memory-01.webp.asset.json";
 import memory02 from "@/assets/thrive/homepage/memory-02.webp.asset.json";
 import memory03 from "@/assets/thrive/homepage/memory-03.webp.asset.json";
