@@ -6,21 +6,23 @@
 
 export const EVENT = {
   name: "Thrive Summit UK 2026",
-  theme: "From Surviving to Thriving.",
-  dateLabel: "7 November 2026",
-  dayLabel: "Saturday 7 November 2026",
-  timeLabel: "Doors open at 11:00 AM",
+  theme: "Building Beyond Limits in Business and Career",
+  dateLabel: "28 November 2026",
+  dayLabel: "Saturday 28 November 2026",
+  timeLabel: "10:00 AM to 3:00 PM GMT",
+  dressCode: "Corporate or smart casual",
   venue: "The Envoy Nation",
   addressLines: ["66 Burleys Way", "Leicester", "LE1 3BD", "United Kingdom"],
   city: "Leicester",
-  /** ISO timestamp used by the countdown (11:00 UK time, GMT in November). */
-  startsAtISO: "2026-11-07T11:00:00Z",
+  /** Approved flyer times are UK local time, GMT in November. */
+  startsAtISO: "2026-11-28T10:00:00Z",
+  endsAtISO: "2026-11-28T15:00:00Z",
   directionsUrl:
     "https://www.google.com/maps/dir/?api=1&destination=66+Burleys+Way,+Leicester+LE1+3BD,+UK",
   mapEmbedUrl:
     "https://www.google.com/maps?q=66+Burleys+Way,+Leicester+LE1+3BD,+UK&output=embed",
   /** Set this only when the client supplies the 2026 registration URL. */
-  registrationUrl: null as string | null,
+  registrationUrl: "https://www.eventbrite.com/e/thrive-summit-uk-2026-tickets-2003770038124" as string | null,
 } as const;
 
 export const PILLARS = [

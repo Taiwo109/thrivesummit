@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { THRIVE_LOGO } from "@/content/thrive-media";
 import { CONTACT_EMAIL } from "@/content/thrive-2026";
 import { RegisterButton } from "./RegisterButton";
+import { EVENT } from "@/content/thrive";
 
 export const SITE_NAV = [
   { label: "Home", to: "/" }, { label: "About", to: "/about" },
@@ -36,7 +37,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return <footer className="border-t border-ink-border bg-ink py-14 text-ink-foreground">
     <div className="section-x grid gap-10 md:grid-cols-[1fr_1fr_1fr]">
-      <div><Link to="/" aria-label="Thrive home"><img src={THRIVE_LOGO} alt="Thrive Summit" className="h-16 w-auto" /></Link><p className="mt-5 max-w-xs text-sm text-ink-muted">Building beyond limits in business and career.</p><p className="mt-3 text-sm text-ink-muted">7 November 2026 · Leicester</p></div>
+      <div><Link to="/" aria-label="Thrive home"><img src={THRIVE_LOGO} alt="Thrive Summit" className="h-16 w-auto" /></Link><p className="mt-5 max-w-xs text-sm text-ink-muted">Building beyond limits in business and career.</p><p className="mt-3 text-sm text-ink-muted">{EVENT.dateLabel} · Leicester</p><p className="mt-2 text-xs text-ink-muted">{EVENT.timeLabel}</p></div>
       <nav aria-label="Footer" className="grid grid-cols-2 content-start gap-x-5 gap-y-4 text-sm">{SITE_NAV.map(item => <Link key={item.to} to={item.to} className="text-ink-muted hover:text-primary" activeProps={{ className: "text-primary" }} activeOptions={{ exact: true }}>{item.label}</Link>)}</nav>
       <div><p className="eyebrow text-primary">Be part of what comes next</p><div className="mt-5"><RegisterButton /></div><a href={`mailto:${CONTACT_EMAIL}`} className="mt-6 block break-all text-sm text-ink-muted underline underline-offset-4 hover:text-primary">{CONTACT_EMAIL}</a></div>
     </div><div className="section-x mt-12 border-t border-ink-border pt-6 text-xs text-ink-muted">© 2026 Thrive Summit UK. All rights reserved.</div>

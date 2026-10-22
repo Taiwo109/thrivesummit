@@ -130,7 +130,11 @@
 .nav-link:hover, .nav-active { color: var(--primary); border-color: var(--primary); }
 .mobile-nav-link { display: flex; align-items: center; justify-content: space-between; padding-block: .9rem; border-bottom: 1px solid var(--ink-border); font-weight: 700; }
 .editorial-hero { min-height: 640px; }
-.hero-heading { font-size: 5.25rem; line-height: 1.02; }
+.hero-heading { font-size: 4.5rem; line-height: 1.04; }
+.hero-2026-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 3rem; }
+.hero-2026-artwork { margin: 0; border-top: 3px solid var(--primary); padding-top: 1rem; }
+.hero-2026-artwork img { object-fit: contain; }
+.site-header .nav-link { transition: color 180ms ease, border-color 180ms ease; }
 .hero-event-image { position: absolute; inset: 0 0 0 auto; width: 43%; height: 100%; object-fit: cover; object-position: center; opacity: .7; }
 .hero-image-shade { position: absolute; inset: 0; background: linear-gradient(90deg, var(--ink) 48%, transparent 88%); }
 .hero-photo-label { position: absolute; right: 2rem; bottom: 2rem; font-size: .7rem; color: var(--ink-foreground); }
@@ -140,6 +144,8 @@
 .venue-map { height: 510px; width: 100%; border: 0; }
 :where(a, button, video):focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
 @media (max-width: 767px) {
+  .hero-2026-layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  .hero-2026-artwork { max-width: 32rem; width: 100%; margin-inline: auto; }
   .editorial-hero { min-height: auto; }
   .hero-heading { font-size: 3.5rem; }
   .hero-event-image { width: 100%; opacity: .18; }
