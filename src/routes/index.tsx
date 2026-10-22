@@ -7,7 +7,7 @@ import { Countdown } from "@/components/thrive/Countdown";
 
 const title = "Thrive Summit UK 2026 | Building Beyond Limits, Leicester";
 const description =
-  "Free summit for career professionals and business owners. Saturday 7 November 2026 at The Envoy Nation, Leicester. Learn, connect and grow.";
+  "Free summit for career professionals and business owners. Saturday 28 November 2026, 10am to 3pm GMT at The Envoy Nation, Leicester. Register now.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

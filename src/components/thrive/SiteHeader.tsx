@@ -53,7 +53,7 @@ export function AnnouncementBar() {
         <span aria-hidden className="opacity-50">
           |
         </span>
-        <span>7 November</span>
+        <span>{EVENT.dateLabel}</span>
         <span aria-hidden className="opacity-50">
           |
         </span>

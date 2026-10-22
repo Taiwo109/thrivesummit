@@ -3,24 +3,22 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOMEPAGE_MEMORIES } from "@/content/thrive-media";
 import { EVENT_2026, PROGRAMME_2026 } from "@/content/thrive-2026";
-import { PILLARS } from "@/content/thrive";
+import { EVENT, PILLARS } from "@/content/thrive";
+import officialFlyer from "@/assets/thrive/2026/official-flyer.jpg.asset.json";
 import { RegisterButton } from "./RegisterButton";
 import { Montage } from "./Montage";
 export { SiteHeader as Header2026, SiteFooter as Footer2026 } from "./SiteChrome";
 
 export function Hero2026() {
   return <section className="editorial-hero relative overflow-hidden bg-ink text-ink-foreground">
-    <img src={HOMEPAGE_MEMORIES[3]} alt="Guests connecting at Thrive Summit UK 2025" className="hero-event-image" fetchPriority="high" />
-    <div className="hero-image-shade" aria-hidden />
-    <div className="section-x relative z-10 py-14 sm:py-20">
+    <div className="section-x hero-2026-layout py-12 sm:py-16"><div>
       <p className="eyebrow text-primary">Thrive Summit UK 2026</p>
       <h1 className="hero-heading mt-7 max-w-4xl">Building<br />beyond limits<br /><span className="text-primary">in business<br />and career.</span></h1>
       <p className="mt-7 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">Join career professionals and business owners for a day of practical insights, meaningful connections, and new perspectives on growth.</p>
-      <ul className="mt-7 flex max-w-xl flex-wrap gap-x-5 gap-y-2 text-sm font-semibold"><li>Saturday, 7 November 2026</li><li>The Envoy Nation, Leicester</li><li className="text-primary">Free registration</li></ul>
+      <ul className="mt-7 flex max-w-xl flex-wrap gap-x-5 gap-y-2 border-t border-ink-border pt-6 text-sm font-semibold"><li>{EVENT_2026.dayLabel}</li><li>{EVENT.timeLabel}</li><li>The Envoy Nation, Leicester</li><li className="text-primary">Free registration</li></ul>
       <div className="mt-8 flex flex-wrap gap-3"><RegisterButton /><Button asChild variant="eventOutline" size="event"><Link to="/about">Discover Thrive <ArrowUpRight aria-hidden /></Link></Button></div>
-      <p className="mt-8 text-xs text-ink-muted">Together, we build what comes next.</p>
-    </div>
-    <p className="hero-photo-label">The people. The energy. Thrive 2025.</p>
+      <p className="mt-6 text-xs text-ink-muted">Dress code: {EVENT.dressCode}</p>
+    </div><figure className="hero-2026-artwork"><img src={officialFlyer.url} alt="Official Thrive Summit UK 2026 flyer, Saturday 28 November, 10am to 3pm at The Envoy Nation in Leicester" className="h-auto w-full" fetchPriority="high" width="768" height="768" /><figcaption className="mt-4 flex justify-between gap-4 text-xs text-ink-muted"><span>Business. Career. Beyond limits.</span><span className="text-primary">Leicester · 2026</span></figcaption></figure></div>
   </section>;
 }
 
@@ -45,7 +43,7 @@ export function Speakers2026() {
 }
 
 export function Programme2026() {
- return <section className="bg-secondary py-20 sm:py-28"><div className="section-x"><div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="eyebrow text-muted-foreground">Programme preview</p><h2 className="mt-5 text-5xl sm:text-6xl">A day with purpose.</h2></div><Button asChild variant="link" className="w-fit px-0 text-foreground"><Link to="/programme">Explore the programme <ArrowRight aria-hidden /></Link></Button></div><p className="mt-5 text-sm text-muted-foreground">Indicative schedule. Official timings and the finishing time are to be confirmed.</p><ol className="mt-10 grid gap-8 md:grid-cols-3">{PROGRAMME_2026.slice(0,3).map((item,i) => <li key={item.time} className="border-t-2 border-primary pt-5"><span className="text-xs font-bold text-muted-foreground">0{i+1}</span><h3 className="mt-3 text-2xl">{item.time}</h3><p className="mt-4 leading-relaxed text-muted-foreground">{item.what}</p></li>)}</ol></div></section>;
+ return <section className="bg-secondary py-20 sm:py-28"><div className="section-x"><div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="eyebrow text-muted-foreground">Programme preview</p><h2 className="mt-5 text-5xl sm:text-6xl">A day with purpose.</h2></div><Button asChild variant="link" className="w-fit px-0 text-foreground"><Link to="/programme">Explore the programme <ArrowRight aria-hidden /></Link></Button></div><p className="mt-5 text-sm text-muted-foreground">{EVENT.timeLabel}. Session timings will be confirmed ahead of the event.</p><ol className="mt-10 grid gap-8 md:grid-cols-3">{PROGRAMME_2026.slice(0,3).map((item,i) => <li key={item.time} className="border-t-2 border-primary pt-5"><span className="text-xs font-bold text-muted-foreground">0{i+1}</span><h3 className="mt-3 text-2xl">{item.time}</h3><p className="mt-4 leading-relaxed text-muted-foreground">{item.what}</p></li>)}</ol></div></section>;
 }
 
 export function Sponsors2026() {
@@ -61,5 +59,5 @@ export function Venue2026() {
 }
 
 export function FinalCTA2026() {
- return <section className="bg-ink py-20 text-center text-ink-foreground sm:py-28"><div className="section-x"><p className="eyebrow text-primary">Saturday, 7 November 2026</p><h2 className="mx-auto mt-6 max-w-4xl text-5xl sm:text-7xl">Your next chapter<br /><span className="text-primary">starts here.</span></h2><p className="mx-auto mt-6 max-w-xl text-lg text-ink-muted">One day. Meaningful connections. New perspectives on business and career.</p><div className="mt-8"><RegisterButton /></div><p className="mt-5 text-sm text-ink-muted">The Envoy Nation, Leicester · Free registration</p></div></section>;
+ return <section className="bg-ink py-20 text-center text-ink-foreground sm:py-28"><div className="section-x"><p className="eyebrow text-primary">{EVENT_2026.dayLabel}</p><h2 className="mx-auto mt-6 max-w-4xl text-5xl sm:text-7xl">Your next chapter<br /><span className="text-primary">starts here.</span></h2><p className="mx-auto mt-6 max-w-xl text-lg text-ink-muted">One day. Meaningful connections. New perspectives on business and career.</p><div className="mt-8"><RegisterButton /></div><p className="mt-5 text-sm text-ink-muted">The Envoy Nation, Leicester · {EVENT.timeLabel} · Free registration</p></div></section>;
 }

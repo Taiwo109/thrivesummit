@@ -1,4 +1,5 @@
 # Website correction
+- [ ] Apply the latest official flyer date and hours, activate registration everywhere, and refine the 2026 presentation.
 - [ ] Preserve the 2025 experience, remove countdown and map, and align navigation.
 - [ ] Refine the 2026 homepage, countdown, and dedicated montage section.
 - [ ] Add About, Programme, Speakers, Sponsors, and Venue & Travel pages.
