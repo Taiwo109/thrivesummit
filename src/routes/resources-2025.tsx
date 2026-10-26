@@ -49,7 +49,7 @@ function Resources2025() {
           <div className="mt-10 grid items-start gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {RESOURCE_VIDEOS.map(video => <article key={video.url}>
               <video src={video.url} poster={video.poster} controls playsInline preload="none" aria-label={video.title} className={video.portrait ? "aspect-[9/16] max-h-[32rem] w-full bg-ink object-contain" : "aspect-video w-full bg-ink object-contain"} />
-              <h3 className="mt-4 text-xl leading-tight">{video.title}</h3><Button asChild variant="eventOutline" className="mt-4"><a href={video.url} download={video.filename}><Download aria-hidden /> Download video</a></Button>
+              <h3 className="mt-4 text-xl leading-tight">{video.title}</h3><Button asChild variant="eventOutline" className="mt-4"><a href={video.downloadUrl} download={video.filename}><Download aria-hidden /> Download video</a></Button>
             </article>)}
           </div>
           <div className="mt-14 border-t border-ink-border pt-8"><h3 className="text-3xl">Full event replays</h3><div className="mt-5 flex flex-wrap gap-4">{REPLAYS_2025.map(video => <Button key={video.youtubeId} asChild variant="eventOutline"><a href={video.url} target="_blank" rel="noopener noreferrer">{video.title}<ArrowUpRight aria-hidden /></a></Button>)}</div></div>
