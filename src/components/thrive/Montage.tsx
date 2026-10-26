@@ -41,7 +41,7 @@ export function Montage() {
     return () => { load.disconnect(); playback.disconnect(); mobile.removeEventListener("change", choose); reduced.removeEventListener("change", motion); document.removeEventListener("visibilitychange", visibility); };
   }, []);
   return <div className="relative bg-ink">
-    <video ref={ref} src={src} poster={HOMEPAGE_MEMORIES[0]} controls muted={muted} playsInline loop preload={src ? "auto" : "none"} aria-label="Thrive Summit UK 2025 montage" className="montage-video block w-full bg-ink object-contain" onCanPlay={tryPlay} onPlay={() => setPlaying(true)} onPause={() => { setPlaying(false); if (visible.current && !document.hidden && eventIsUserPause(ref.current)) userPaused.current = true; }} onVolumeChange={event => setMuted(event.currentTarget.muted)} />
+    <video ref={ref} src={src} poster={HOMEPAGE_MEMORIES[0]} controls muted={muted} playsInline loop preload={src ? "auto" : "none"} aria-label="Thrive Summit UK 2025 montage" className="montage-video block w-full bg-ink object-contain" onCanPlay={tryPlay} onPlay={() => { setPlaying(true); userPaused.current = false; }} onPause={() => { setPlaying(false); if (visible.current && !document.hidden) userPaused.current = true; }} onVolumeChange={event => setMuted(event.currentTarget.muted)} />
     <div className="flex items-center justify-end gap-2 border-t border-ink-border p-3">
       <Button variant="ghost" size="icon" className="text-ink-foreground hover:bg-ink-border" aria-label={playing ? "Pause montage" : "Play montage"} title={playing ? "Pause montage" : "Play montage"} onClick={() => {
         const video = ref.current; if (!video) return;
