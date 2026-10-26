@@ -1,4 +1,8 @@
 # Website correction
+- [ ] Update homepage montage to viewport autoplay with pause and sound controls; remove the poorly framed introduction photo.
+- [ ] Remove the 2025 highlights section and replace snippet three with the supplied Short.
+- [ ] Add the 2025 resources page with supplied videos, archives, event pictures, and working downloads.
+- [ ] Verify playback, resource downloads, and desktop/mobile layouts.
 - [x] Apply the latest official flyer date and hours, activate registration everywhere, and refine the 2026 presentation.
 - [x] Preserve the 2025 experience, remove countdown and map, and align navigation.
 - [x] Refine the 2026 homepage, countdown, and dedicated montage section.
