@@ -7,7 +7,6 @@ import {
   WhatIsThrive,
   WhyThrive,
   WhatYouLeaveWith,
-  Highlights2025,
   Partners,
 } from "@/components/thrive/Sections";
 import { SpeakerCarousel } from "@/components/thrive/SpeakerCarousel";
@@ -46,7 +45,6 @@ function Experience2025() {
         <ExperienceThrive />
         <MemoriesCarousel />
         <WhatYouLeaveWith />
-        <Highlights2025 />
         <Partners />
         <FinalCTA />
       </main>
