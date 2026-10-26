@@ -25,7 +25,6 @@ export function Intro() {
   return <section className="bg-background py-20 sm:py-28"><div className="section-x">
     <p className="eyebrow text-muted-foreground">More than an event</p>
     <div className="mt-6 grid gap-8 lg:grid-cols-[1.2fr_1fr]"><h2 className="text-5xl sm:text-6xl">A space to grow.<br /><span className="text-primary">A room to belong.</span></h2><div className="max-w-xl text-lg leading-relaxed text-muted-foreground"><p>Thrive Summit brings career professionals and business owners together for honest conversations, practical insight and meaningful connection.</p><p className="mt-4">One day in Leicester, built around the people and perspectives that make your next step possible.</p><Button asChild variant="link" className="mt-5 px-0 font-bold text-foreground"><Link to="/about">The story behind Thrive <ArrowRight aria-hidden /></Link></Button></div></div>
-    <figure className="mt-12"><img src={HOMEPAGE_MEMORIES[4]} alt="A shared moment at Thrive Summit UK 2025" loading="lazy" className="intro-photo w-full object-cover" /><figcaption className="mt-3 text-xs text-muted-foreground">Connections made at Thrive Summit UK 2025.</figcaption></figure>
   </div></section>;
 }
 

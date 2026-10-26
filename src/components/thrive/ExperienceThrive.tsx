@@ -1,4 +1,6 @@
-import { Play } from "lucide-react";
+import { Play, ArrowRight, LockKeyhole, ArrowUpRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
 import { REPLAYS_2025 } from "@/content/thrive";
 import { SNIPPET_POSTERS_2025, SNIPPETS_2025 } from "@/content/thrive-media";
 
@@ -11,7 +13,7 @@ export function ExperienceThrive() {
         <p className="mt-4 max-w-xl text-muted-foreground">A glimpse into Thrive Summit 2025.</p>
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {SNIPPETS_2025.map((video, index) => (
+          {SNIPPETS_2025.slice(0, 2).map((video, index) => (
             <video
               key={video}
               src={video}
@@ -23,6 +25,12 @@ export function ExperienceThrive() {
               className="aspect-[9/16] h-auto w-full bg-ink object-cover"
             />
           ))}
+          <div className="flex aspect-[9/16] flex-col items-center justify-center bg-ink p-8 text-center text-ink-foreground">
+            <LockKeyhole className="h-8 w-8 text-primary" aria-hidden />
+            <h3 className="mt-5 text-2xl">2025 Short</h3>
+            <p className="mt-4 text-sm leading-relaxed text-ink-muted">The replacement video is currently private on YouTube.</p>
+            <Button asChild variant="eventOutline" className="mt-6"><a href="https://youtube.com/shorts/Av4R7fcsSWc" target="_blank" rel="noopener noreferrer">View supplied link <ArrowUpRight aria-hidden /></a></Button>
+          </div>
         </div>
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">
@@ -52,6 +60,7 @@ export function ExperienceThrive() {
           ))}
 
         </div>
+        <Button asChild variant="event" size="event" className="mt-10"><Link to="/resources-2025">Explore 2025 Resources <ArrowRight aria-hidden /></Link></Button>
       </div>
     </section>
   );

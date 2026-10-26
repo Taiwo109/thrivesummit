@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as Experience2025RouteImport } from './routes/experience-2025'
 import { Route as ProgrammeRouteImport } from './routes/programme'
+import { Route as Resources2025RouteImport } from './routes/resources-2025'
 import { Route as SpeakersRouteImport } from './routes/speakers'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as Thrive2025RouteImport } from './routes/thrive-2025'
@@ -36,6 +37,11 @@ const Experience2025Route = Experience2025RouteImport.update({
 const ProgrammeRoute = ProgrammeRouteImport.update({
   id: '/programme',
   path: '/programme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Resources2025Route = Resources2025RouteImport.update({
+  id: '/resources-2025',
+  path: '/resources-2025',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SpeakersRoute = SpeakersRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/experience-2025': typeof Experience2025Route
   '/programme': typeof ProgrammeRoute
+  '/resources-2025': typeof Resources2025Route
   '/speakers': typeof SpeakersRoute
   '/sponsors': typeof SponsorsRoute
   '/thrive-2025': typeof Thrive2025Route
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/experience-2025': typeof Experience2025Route
   '/programme': typeof ProgrammeRoute
+  '/resources-2025': typeof Resources2025Route
   '/speakers': typeof SpeakersRoute
   '/sponsors': typeof SponsorsRoute
   '/thrive-2025': typeof Thrive2025Route
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/experience-2025': typeof Experience2025Route
   '/programme': typeof ProgrammeRoute
+  '/resources-2025': typeof Resources2025Route
   '/speakers': typeof SpeakersRoute
   '/sponsors': typeof SponsorsRoute
   '/thrive-2025': typeof Thrive2025Route
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/experience-2025'
     | '/programme'
+    | '/resources-2025'
     | '/speakers'
     | '/sponsors'
     | '/thrive-2025'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/experience-2025'
     | '/programme'
+    | '/resources-2025'
     | '/speakers'
     | '/sponsors'
     | '/thrive-2025'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/experience-2025'
     | '/programme'
+    | '/resources-2025'
     | '/speakers'
     | '/sponsors'
     | '/thrive-2025'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   Experience2025Route: typeof Experience2025Route
   ProgrammeRoute: typeof ProgrammeRoute
+  Resources2025Route: typeof Resources2025Route
   SpeakersRoute: typeof SpeakersRoute
   SponsorsRoute: typeof SponsorsRoute
   Thrive2025Route: typeof Thrive2025Route
@@ -162,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/programme'
       fullPath: '/programme'
       preLoaderRoute: typeof ProgrammeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources-2025': {
+      id: '/resources-2025'
+      path: '/resources-2025'
+      fullPath: '/resources-2025'
+      preLoaderRoute: typeof Resources2025RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/speakers': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   Experience2025Route: Experience2025Route,
   ProgrammeRoute: ProgrammeRoute,
+  Resources2025Route: Resources2025Route,
   SpeakersRoute: SpeakersRoute,
   SponsorsRoute: SponsorsRoute,
   Thrive2025Route: Thrive2025Route,

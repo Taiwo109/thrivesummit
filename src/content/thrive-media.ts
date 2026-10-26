@@ -18,6 +18,8 @@ import poster02 from "@/assets/thrive/posters/snippet-2.jpg.asset.json";
 import poster03 from "@/assets/thrive/posters/snippet-3.jpg.asset.json";
 import heroMobile from "@/assets/thrive/hero/thrive-mobile-montage.webm.asset.json";
 import heroDesktop from "@/assets/thrive/hero/thrive-desktop-montage.webm.asset.json";
+import heroMobileMp4 from "@/assets/thrive/hero/thrive-mobile-montage.mp4.asset.json";
+import heroDesktopMp4 from "@/assets/thrive/hero/thrive-desktop-montage.mp4.asset.json";
 import aanuPortrait from "@/assets/thrive/speaker-portraits/aanu-clement-david-olawade.webp.asset.json";
 import gracePortrait from "@/assets/thrive/speaker-portraits/grace-moronfolu.webp.asset.json";
 import oluwafemiPortrait from "@/assets/thrive/speaker-portraits/oluwafemi-esan.webp.asset.json";
@@ -50,6 +52,7 @@ export const HERO_MONTAGE = {
   mobile: heroMobile.url,
   desktop: heroDesktop.url,
 } as const;
+export const HERO_MONTAGE_MP4 = { mobile: heroMobileMp4.url, desktop: heroDesktopMp4.url } as const;
 
 export const SPEAKERS_2025 = [
   {

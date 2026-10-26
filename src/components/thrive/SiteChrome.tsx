@@ -12,6 +12,7 @@ export const SITE_NAV = [
   { label: "Programme", to: "/programme" }, { label: "Speakers", to: "/speakers" },
   { label: "Sponsors", to: "/sponsors" }, { label: "Venue & Travel", to: "/venue-travel" },
   { label: "Experience Thrive", to: "/experience-2025" },
+  { label: "2025 Resources", to: "/resources-2025" },
 ] as const;
 
 export function SiteHeader() {
