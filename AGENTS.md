@@ -17,3 +17,4 @@
 - Keep event countdown arithmetic in the browser-safe thrive-countdown utility with explicit UTC boundaries and tests; render clock values only after hydration to avoid mismatches.
 - Keep current event dates, hours and registration destination in EVENT; shared presentation and countdown code consume that source to prevent inconsistent updates.
 - Preserve the existing interactive venue embed on the dedicated travel page; defer hosted montage loading until near the viewport and use native accessible media controls.
+- Keep 2025 resources in a dedicated route with structured media collections, uncropped optimized images, and same-origin downloadable asset links; restricted external videos must show their real availability, never a simulated player or download.
