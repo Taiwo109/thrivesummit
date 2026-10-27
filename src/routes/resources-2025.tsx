@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowUpRight, Download, Image as ImageIcon, Film, Archive } 
 import { Button } from "@/components/ui/button";
 import { SiteHeader, SiteFooter } from "@/components/thrive/SiteChrome";
 import { RESOURCE_PHOTOS, RESOURCE_ARTWORK, RESOURCE_ARCHIVES } from "@/content/thrive-resources";
-import { RESOURCE_VIDEOS, REQUESTED_VIDEOS } from "@/content/thrive-resource-videos";
+import { RESOURCE_VIDEOS } from "@/content/thrive-resource-videos";
 import { REPLAYS_2025 } from "@/content/thrive";
 
 const title = "Thrive Summit UK 2025 Resources | Photos, Films & Downloads";
@@ -53,7 +53,6 @@ function Resources2025() {
             </article>)}
           </div>
           <div className="mt-14 border-t border-ink-border pt-8"><h3 className="text-3xl">Full event replays</h3><div className="mt-5 flex flex-wrap gap-4">{REPLAYS_2025.map(video => <Button key={video.youtubeId} asChild variant="eventOutline"><a href={video.url} target="_blank" rel="noopener noreferrer">{video.title}<ArrowUpRight aria-hidden /></a></Button>)}</div></div>
-          <div className="mt-12 border-t border-ink-border pt-8"><h3 className="text-2xl">Additional 2025 videos</h3><p className="mt-4 max-w-xl text-sm text-ink-muted">These supplied YouTube videos are currently private. Playback and downloads will be available once the video files are supplied or access is opened.</p><div className="mt-6 grid gap-4 sm:grid-cols-2">{REQUESTED_VIDEOS.map(video => <div key={video.url} className="flex items-center justify-between gap-4 border-b border-ink-border pb-4"><div><p className="font-bold">{video.title}</p><p className="mt-1 text-xs text-ink-muted">Private on YouTube</p></div><Button asChild variant="ghost" size="icon" className="text-primary hover:bg-ink-border"><a href={video.url} target="_blank" rel="noopener noreferrer" aria-label={`Open supplied link for ${video.title}`} title="Open supplied YouTube link"><ArrowUpRight aria-hidden /></a></Button></div>)}</div></div>
         </div>
       </section>
       <section id="artwork" className="scroll-mt-24 py-16 sm:py-24"><div className="section-x"><p className="eyebrow text-primary">The people behind 2025</p><h2 className="mt-4 text-4xl sm:text-5xl">Speakers & sponsors.</h2><div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">{RESOURCE_ARTWORK.map((image, i) => <figure key={image.url}><a href={image.url} target="_blank" rel="noopener noreferrer" aria-label={`View ${image.name}`}><img src={image.url} width={image.width} height={image.height} loading="lazy" decoding="async" alt={`Thrive Summit UK 2025, ${image.name}`} className="aspect-[4/5] w-full bg-secondary object-contain" /></a><figcaption className="mt-4 flex items-start justify-between gap-3"><span className="min-w-0 text-sm font-bold">{image.name}</span><Button asChild variant="ghost" size="icon" className="shrink-0"><a href={image.url} download={`thrive-2025-graphic-${i+1}.webp`} aria-label={`Download ${image.name}`} title={`Download ${image.name}`}><Download aria-hidden /></a></Button></figcaption></figure>)}</div></div></section>
