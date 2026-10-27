@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as Experience2025RouteImport } from './routes/experience-2025'
 import { Route as ProgrammeRouteImport } from './routes/programme'
 import { Route as Resources2025RouteImport } from './routes/resources-2025'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Experience2025Route = Experience2025RouteImport.update({
@@ -68,6 +74,7 @@ const VenueTravelRoute = VenueTravelRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/experience-2025': typeof Experience2025Route
   '/programme': typeof ProgrammeRoute
   '/resources-2025': typeof Resources2025Route
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/experience-2025': typeof Experience2025Route
   '/programme': typeof ProgrammeRoute
   '/resources-2025': typeof Resources2025Route
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/experience-2025': typeof Experience2025Route
   '/programme': typeof ProgrammeRoute
   '/resources-2025': typeof Resources2025Route
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/contact'
     | '/experience-2025'
     | '/programme'
     | '/resources-2025'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/contact'
     | '/experience-2025'
     | '/programme'
     | '/resources-2025'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/contact'
     | '/experience-2025'
     | '/programme'
     | '/resources-2025'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   Experience2025Route: typeof Experience2025Route
   ProgrammeRoute: typeof ProgrammeRoute
   Resources2025Route: typeof Resources2025Route
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience-2025': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   Experience2025Route: Experience2025Route,
   ProgrammeRoute: ProgrammeRoute,
   Resources2025Route: Resources2025Route,
