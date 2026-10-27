@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,13 +22,14 @@ const EXPERIENCE_NAV = [
 function ExperienceNavigation({ mobile = false }: { mobile?: boolean }) {
   const { pathname } = useLocation();
   const [expanded, setExpanded] = useState(false);
+  const linksId = useId();
   const active = EXPERIENCE_NAV.some(item => pathname === item.to);
   useEffect(() => { setExpanded(false); }, [pathname]);
   return <div className={mobile ? "" : "relative"} onKeyDown={event => { if (event.key === "Escape") setExpanded(false); }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(false); }}>
-    <Button variant="ghost" onClick={() => setExpanded(value => !value)} aria-expanded={expanded} aria-controls={mobile ? "experience-mobile-links" : "experience-desktop-links"} className={mobile ? `mobile-nav-link h-auto w-full rounded-none px-0 ${active ? "nav-active" : ""}` : `nav-link h-auto rounded-none px-0 hover:bg-transparent ${active ? "nav-active" : ""}`}>
+    <Button variant="ghost" onClick={() => setExpanded(value => !value)} aria-expanded={expanded} aria-controls={linksId} className={mobile ? `mobile-nav-link h-auto w-full rounded-none px-0 ${active ? "nav-active" : ""}` : `nav-link h-auto rounded-none px-0 hover:bg-transparent ${active ? "nav-active" : ""}`}>
       Experience Thrive <ChevronDown className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`} aria-hidden />
     </Button>
-    {expanded && <div id={mobile ? "experience-mobile-links" : "experience-desktop-links"} className={mobile ? "pl-5" : "absolute right-0 top-full z-50 w-56 border border-ink-border bg-ink p-2"}>
+    {expanded && <div id={linksId} className={mobile ? "pl-5" : "absolute right-0 top-full z-50 w-56 border border-ink-border bg-ink p-2"}>
       {EXPERIENCE_NAV.map(item => <Link key={item.to} to={item.to} activeOptions={{ exact: true }} aria-current={pathname === item.to ? "page" : undefined} className="mobile-nav-link px-3 text-sm hover:text-primary" activeProps={{ className: "mobile-nav-link nav-active px-3 text-sm" }}>{item.label}</Link>)}
     </div>}
   </div>;
