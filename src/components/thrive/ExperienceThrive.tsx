@@ -26,7 +26,7 @@ export function ExperienceThrive() {
               className="aspect-[9/16] h-auto w-full bg-ink object-cover"
             />
           ))}
-          <video src={SHORT_2025.url} poster={SHORT_2025.poster} controls playsInline preload="none" aria-label="Thrive Summit 2025 video snippet 3" className="aspect-[9/16] h-auto w-full bg-ink object-contain" />
+          <video poster={SHORT_2025.poster} controls playsInline preload="none" aria-label="Thrive Summit 2025 video snippet 3" className="aspect-[9/16] h-auto w-full bg-ink object-contain"><source src={SHORT_2025.url} type="video/webm" /><source src={SHORT_2025.downloadUrl} type="video/mp4" /></video>
         </div>
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">

@@ -48,7 +48,7 @@ function Resources2025() {
           <p className="eyebrow text-primary">Sound. Stories. Connection.</p><h2 className="mt-4 text-4xl sm:text-5xl">Thrive on film.</h2>
           <div className="mt-10 grid items-start gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {RESOURCE_VIDEOS.map(video => <article key={video.url}>
-              <video src={video.url} poster={video.poster} controls playsInline preload="none" aria-label={video.title} className={video.portrait ? "aspect-[9/16] max-h-[32rem] w-full bg-ink object-contain" : "aspect-video w-full bg-ink object-contain"} />
+              <video poster={video.poster} controls playsInline preload="none" aria-label={video.title} className={video.portrait ? "aspect-[9/16] max-h-[32rem] w-full bg-ink object-contain" : "aspect-video w-full bg-ink object-contain"}><source src={video.url} type={video.url.endsWith(".webm") ? "video/webm" : "video/mp4"} />{video.url !== video.downloadUrl && <source src={video.downloadUrl} type="video/mp4" />}</video>
               <h3 className="mt-4 text-xl leading-tight">{video.title}</h3><Button asChild variant="eventOutline" className="mt-4"><a href={video.downloadUrl} download={video.filename}><Download aria-hidden /> Download video</a></Button>
             </article>)}
           </div>
