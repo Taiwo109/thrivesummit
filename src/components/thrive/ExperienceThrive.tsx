@@ -1,8 +1,9 @@
-import { Play, ArrowRight, LockKeyhole, ArrowUpRight } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { REPLAYS_2025 } from "@/content/thrive";
 import { SNIPPET_POSTERS_2025, SNIPPETS_2025 } from "@/content/thrive-media";
+import { SHORT_2025 } from "@/content/thrive-resource-videos";
 
 export function ExperienceThrive() {
   return (
@@ -25,12 +26,7 @@ export function ExperienceThrive() {
               className="aspect-[9/16] h-auto w-full bg-ink object-cover"
             />
           ))}
-          <div className="flex aspect-[9/16] flex-col items-center justify-center bg-ink p-8 text-center text-ink-foreground">
-            <LockKeyhole className="h-8 w-8 text-primary" aria-hidden />
-            <h3 className="mt-5 text-2xl">2025 Short</h3>
-            <p className="mt-4 text-sm leading-relaxed text-ink-muted">The replacement video is currently private on YouTube.</p>
-            <Button asChild variant="eventOutline" className="mt-6"><a href="https://youtube.com/shorts/Av4R7fcsSWc" target="_blank" rel="noopener noreferrer">View supplied link <ArrowUpRight aria-hidden /></a></Button>
-          </div>
+          <video poster={SHORT_2025.poster} controls playsInline preload="none" aria-label="Thrive Summit 2025 video snippet 3" className="aspect-[9/16] h-auto w-full bg-ink object-contain"><source src={SHORT_2025.url} type="video/webm" /><source src={SHORT_2025.downloadUrl} type="video/mp4" /></video>
         </div>
 
         <div className="mt-5 grid gap-5 md:grid-cols-2">
