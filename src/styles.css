@@ -142,6 +142,7 @@
 .montage-video { aspect-ratio: 16 / 9; }
 .page-heading { font-size: 4.5rem; line-height: 1.04; }
 .venue-map { height: 510px; width: 100%; border: 0; }
+.systeme-form { display: block; height: 700px; max-width: 100%; }
 :where(a, button, video):focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
 @media (max-width: 767px) {
   .hero-2026-layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }

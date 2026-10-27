@@ -9,6 +9,7 @@ import { SiteHeader, SiteFooter } from "./SiteChrome";
 import { RegisterButton } from "./RegisterButton";
 import { FinalCTA2026 } from "./Home2026";
 import type { ReactNode } from "react";
+import { SystemeForm } from "./SystemeForm";
 
 export function EventPage({ children }: { children: ReactNode }) {
  return <><SiteHeader /><main>{children}</main><SiteFooter /></>;
