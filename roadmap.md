@@ -1,9 +1,11 @@
 # Website correction
+- [ ] Embed the real sponsorship and contact forms, add Contact Us, and verify route-specific loading and mobile sizing.
+- [ ] Group Thrive 2025 and 2025 Resources under Experience Thrive in main and footer navigation.
 - [x] Update homepage montage to viewport autoplay with pause and sound controls; remove the poorly framed introduction photo.
 - [x] Remove the 2025 highlights section and retire the old third snippet from the experience page.
 - [x] Add the 2025 resources page with existing hosted films, all 15 event photographs, 11 supplied graphics, original archives, and working downloads.
 - [x] Verify playback, photo/archive/video downloads, and desktop/mobile layouts.
-- [ ] Replace snippet three and host the four new supplied YouTube videos: blocked because all four links report private videos; needs public access or uploaded files.
+- [ ] Recheck the newly public videos, host the four supplied films, and replace snippet three with the supplied Short.
 - [x] Apply the latest official flyer date and hours, activate registration everywhere, and refine the 2026 presentation.
 - [x] Preserve the 2025 experience, remove countdown and map, and align navigation.
 - [x] Refine the 2026 homepage, countdown, and dedicated montage section.
