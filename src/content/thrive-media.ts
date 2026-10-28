@@ -49,8 +49,8 @@ export const HOMEPAGE_MEMORIES = [
 ] as const;
 
 export const HERO_MONTAGE = {
-  mobile: heroMobile.url,
-  desktop: heroDesktop.url,
+  mobile: heroMobileMp4.url,
+  desktop: heroDesktopMp4.url,
 } as const;
 export const HERO_MONTAGE_MP4 = { mobile: heroMobileMp4.url, desktop: heroDesktopMp4.url } as const;
 
